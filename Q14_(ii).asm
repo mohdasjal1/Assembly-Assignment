@@ -51,13 +51,13 @@ printLoop:
 dispNum endp
 
 main proc
-    mov di, 0
-    mov si, 1
+    mov ax, 1
+    mov bx, 2
     mov cx, 8
 
 L1:
-    add si, di
-    push si
+    
+    push ax
     call dispNum
 
     cmp cx, 1
@@ -67,8 +67,8 @@ L1:
     mov ah, 2
     int 21h
 
-    pop si
-    mov di, si
+    pop ax
+    mul bx
 
     loop L1
 
