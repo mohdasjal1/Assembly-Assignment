@@ -55,16 +55,16 @@ dispNum endp
 main proc 
   
     mov si, 30
-    mov di, 0
     mov bx, 0
+    ;mov bx, 0
     mov cx, 11
     
 L1: 
     ;print   
-    add di, si
     push si
-    call dispNum
+    call dispNum    
     sub si, 3
+    
     
     ; Seperation
     mov dl, ','
@@ -76,10 +76,10 @@ L1:
     int 21h
     
     ;print
-    add di, bx
-    push bx 
+    push bx
     call dispNum
-    add bl, 3
+    pop bx 
+    add bx, 3
     
     cmp cx, 1
     je exit
